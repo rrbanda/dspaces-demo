@@ -73,9 +73,9 @@ INFO[0000] starting provider                             provider=builtin
 INFO[0000] starting provider                             provider=java
 INFO[0004] running depencency analysis
 INFO[0004] evaluating rules for violations. see analysis.log for more info
-INFO[0018] writing analysis results to output            output=/Users/demo/dev-mta/mta-7.2.1-cli-darwin-arm64/report-output
+INFO[0018] writing analysis results to output            output=report-output
 INFO[0018] generating static report
-INFO[0018] Static report created. Access it at this URL:  URL="file:///Users/demo/dev-mta/mta-7.2.1-cli-darwin-arm64/report-output/static-report/index.html"```
+INFO[0018] Static report created. Access it at this URL:  URL="report-output/static-report/index.html"
 ```
 
 ## Reviewing the reports

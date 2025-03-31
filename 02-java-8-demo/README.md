@@ -25,15 +25,16 @@ image: registry.redhat.io/mta/mta-cli-rhel9:7.2.1
 2. Move into the directory
 
 ```
-cd 02-java-demo
+cd migration-toolkit-applications-examples
 ```
+
 ## Run MTA Analysis
 
 1. Run the following command
 
 ```
 ./mta-cli analyze \
---input ../02-java-8-demo \
+--input 02-java-8-demo \
 --output report-output/ --overwrite \
 --source openjdk8 \
 --target openjdk17
@@ -44,7 +45,7 @@ cd 02-java-demo
   * `mta-cli analyze`
     * This is the main command to analyze an application using the Migration Toolkit for Applications.
 
-  * `--input ../02-java-8-demo`
+  * `--input 02-java-8-demo`
     * Specifies the path to the source code or application to be analyzed. In this case, the application is located in a directory named ../02-java-8-demo.
 
   * `--output report-output/`
@@ -73,9 +74,9 @@ INFO[0000] starting provider                             provider=builtin
 INFO[0000] starting provider                             provider=java
 INFO[0005] running depencency analysis
 INFO[0005] evaluating rules for violations. see analysis.log for more info
-INFO[0010] writing analysis results to output            output=/Users/demo/dev-mta/mta-7.2.1-cli-darwin-arm64/report-output
+INFO[0010] writing analysis results to output            output=report-output
 INFO[0010] generating static report
-INFO[0010] Static report created. Access it at this URL:  URL="file:///Users/demo/dev-mta/mta-7.2.1-cli-darwin-arm64/report-output/static-report/index.html"
+INFO[0010] Static report created. Access it at this URL:  URL="report-output/static-report/index.html"
 ```
 
 
