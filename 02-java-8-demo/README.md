@@ -21,7 +21,7 @@ cd 02-java-demo
 ```
 ## Run MTA Analysis
 
-3. Run the following command
+1. Run the following command
 
 ```
 ./mta-cli analyze \
@@ -51,7 +51,7 @@ cd 02-java-demo
   * `--target openjdk17`
     * Specifies the target runtime environment to which you intend to migrate the application. Here, the target environment is OpenJDK 17.
 
-4. You will see the following output.
+2. You will see the following output.
 
 ```
 INFO[0000]
