@@ -2,9 +2,17 @@
 
 ## System Requirements
 
-* Make sure you have the Migration Toolkit for Applications installed.
+* Make sure you have the [Migration Toolkit for Applications CLI](https://docs.redhat.com/en/documentation/migration_toolkit_for_applications/7.2/html-single/cli_guide/index#installing-cli-tool_cli-guide) installed.
 
 * Confirm the installation: `mta-cli version`
+
+```
+version: 7.2.1
+SHA: 4c757335ce396d3dc2e18fcc0ebecbf4675bb171
+image: registry.redhat.io/mta/mta-cli-rhel9:7.2.1
+```
+
+* This example is based on MTA version 7.2.1
 
 ## Set up
 
@@ -110,4 +118,3 @@ INFO[0010] Static report created. Access it at this URL:  URL="file:///Users/dem
 3. Each reported issue may be expanded, by clicking on the title, to obtain additional details. The following information is provided.
   * A list of files where the incidents occurred, along with the number of incidents within each file. If the file is a Java source file, then clicking the filename will direct you to the corresponding Source report.
   * A detailed description of the issue. This description outlines the problem, provides any known solutions, and references supporting documentation regarding either the issue or resolution.
-  * A direct link, entitled *Show Rule*, to the rule that generated the issue.
