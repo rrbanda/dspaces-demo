@@ -1,0 +1,60 @@
+schemaVersion: 2.2.0
+metadata:
+  name: petclinic-springboot
+  version: 1.2.1
+  attributes:
+    alpha.dockerimage-port: 8080
+  displayName: Spring PetClinic (Spring Boot®)
+  description: Spring Boot® PetClinic with Maven and Docker
+  icon: https://raw.githubusercontent.com/devfile-samples/devfile-stack-icons/main/spring.svg
+  tags:
+    - Java
+    - Spring
+    - PetClinic
+  projectType: springboot
+  language: Java
+  provider: Red Hat
+  supportUrl: https://github.com/devfile-samples/devfile-support#support-information
+projects:
+  - name: petclinic
+    git:
+      remotes:
+        origin: https://github.com/rrbanda/dspaces-demo.git
+      sparseCheckoutDir: 01-spring-boot-2-spring-pet-clinic
+components:
+  - name: image-build
+    image:
+      imageName: petclinic-image:latest
+      dockerfile:
+        uri: 01-spring-boot-2-spring-pet-clinic/Containerfile
+        buildContext: 01-spring-boot-2-spring-pet-clinic
+        rootRequired: false
+  - name: kubernetes-deploy
+    attributes:
+      deployment/replicas: 1
+      deployment/cpuRequest: 10m
+      deployment/memoryRequest: 180Mi
+      deployment/container-port: 8080
+    kubernetes:
+      # Assumes you have a deployment YAML like 01-spring-boot-2-spring-pet-clinic/deploy/deploy.yaml
+      uri: 01-spring-boot-2-spring-pet-clinic/deploy/deploy.yaml
+      endpoints:
+        - name: http-8080
+          targetPort: 8080
+          path: /
+          secure: false
+commands:
+  - id: build-image
+    apply:
+      component: image-build
+  - id: deployk8s
+    apply:
+      component: kubernetes-deploy
+  - id: deploy
+    composite:
+      commands:
+        - build-image
+        - deployk8s
+      group:
+        kind: deploy
+        isDefault: true
