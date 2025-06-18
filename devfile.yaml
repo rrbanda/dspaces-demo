@@ -20,7 +20,6 @@ projects:
     git:
       remotes:
         origin: https://github.com/rrbanda/dspaces-demo.git
-      sparseCheckoutDir: 01-spring-boot-2-spring-pet-clinic
 components:
   - name: image-build
     image:
@@ -36,7 +35,6 @@ components:
       deployment/memoryRequest: 180Mi
       deployment/container-port: 8080
     kubernetes:
-      # Assumes you have a deployment YAML like 01-spring-boot-2-spring-pet-clinic/deploy/deploy.yaml
       uri: 01-spring-boot-2-spring-pet-clinic/deploy/deploy.yaml
       endpoints:
         - name: http-8080
